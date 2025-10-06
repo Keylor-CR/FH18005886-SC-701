@@ -1,0 +1,51 @@
+﻿@model InputModel
+
+<h2>Ingrese 2 valores binarios</h2>
+<br />
+<form asp-action="Index" method="post">
+    <div>
+        <label>a</label>
+        <input asp-for="A"> </input>
+        <span asp-validation-for="A" class="text-danger"></span>
+    </div>
+    <div>
+        <label>b</label>
+        <input asp-for="B"> </input>
+        <span asp-validation-for="B" class="text-danger"></span>
+    </div>
+    <br>
+    <button type="submit">Calcular</button>
+</form>
+
+ 
+@if (Model.Results != null)
+{
+<hr class="my-4" />
+<h2>Resultados</h2>
+<div class="table-responsive">
+<table class="table table-striped">
+<thead class="table-light">
+<tr>
+<th></th>
+<th>Bin</th>
+<th>Oct</th>
+<th>Dec</th>
+<th>Hex</th>
+</tr>
+</thead>
+<tbody>
+@foreach (var r in Model.Results)
+{
+<tr>
+<th scope="row">@r.Label</th>
+<td>@r.Bin</td>
+<td>@r.Oct</td>
+<td>@r.Dec</td>
+<td>@r.Hex</td>
+</tr>
+}
+</tbody>
+</table>
+</div>
+}
+</div>
