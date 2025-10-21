@@ -27,6 +27,7 @@ Prompts utilizados:
 - https://chatgpt.com/s/t_68f80567529481919094f848c0d1ff9c
 - https://chatgpt.com/s/t_68f80599cae08191b077637f31f9d003
 - https://chatgpt.com/s/t_68f8058147f48191a16845d3996d8727
+- https://chatgpt.com/c/68f80cf8-79b0-8328-a977-fd697eef00f0
 
 
 

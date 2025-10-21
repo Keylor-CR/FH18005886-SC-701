@@ -41,23 +41,23 @@ app.MapPost("/include/{position:int}", ([FromRoute] int position, [FromQuery] st
 
     }
     
-    //Lista de Palabras
+    // Lista de palabras
     var wordsList = text.Split(' ', StringSplitOptions.RemoveEmptyEntries).ToList();
 
-    if (position >= wordsList.Count) //Nuevo position es al final de la lista de palabras
+    if (position >= wordsList.Count) // Si la posición es mayor o igual que el total de palabras, se insertará al final de la lista
     {
         position = wordsList.Count;
     }
 
-    //Inserta en la posición definida
+    // Inserta en la posición definida
     wordsList.Insert(position, value);
     
-    //Reconstruye la oración
+    // Reconstruye la oración
     string newSentence = string.Join(" ", wordsList);
 
     var payload = new Result { Ori = text, New = newSentence };
     
-    //Construye la respuesta
+    // Construye la respuesta
     if (xml)
     {
         var xmlResult = Serializer(payload);
@@ -86,22 +86,22 @@ app.MapPut("/replace/{length:int}", ([FromRoute] int length, [FromQuery] string 
         return Results.BadRequest(new { error = "Error de validación: 'text' no puede estar vacío." });
     }
 
-    //Lista de Palabras
+    // Lista de palabras
     var wordsList = text.Split(' ', StringSplitOptions.RemoveEmptyEntries).ToList();
 
-    //Itero la lista de Palabras
+    // Itero la lista de palabras
     for (int i = 0; i < wordsList.Count; i++)
     {
         if (wordsList[i].Length == length)
             wordsList[i] = value;
     }
 
-    //Reconstruye la oración
+    // Reconstruye la oración
     string newSentence = string.Join(" ", wordsList);
 
     var payload = new Result { Ori = text, New = newSentence };
     
-    //Construye la respuesta
+    // Construye la respuesta
     if (xml)
     {
         var xmlResult = Serializer(payload);
@@ -125,18 +125,18 @@ app.MapDelete("/erase/{length:int}", ([FromRoute] int length, [FromForm] string 
         return Results.BadRequest(new { error = "Error de validación: 'text' no puede estar vacío." });
     }
 
-    //Lista de Palabras
+    // Lista de palabras
     var wordsList = text.Split(' ', StringSplitOptions.RemoveEmptyEntries).ToList();
 
     // Elimina las palabras cuya longitud sea 'length'
     wordsList.RemoveAll(w => w.Length == length);
 
-    //Reconstruye la oración
+    // Reconstruye la oración
     string newSentence = string.Join(" ", wordsList);
 
     var payload = new Result { Ori = text, New = newSentence };
     
-    //Construye la respuesta
+    // Construye la respuesta
     if (xml)
     {
         var xmlResult = Serializer(payload);
