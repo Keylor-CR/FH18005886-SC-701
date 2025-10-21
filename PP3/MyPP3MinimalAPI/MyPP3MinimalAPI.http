@@ -1,0 +1,6 @@
+@MyPP3MinimalAPI_HostAddress = http://localhost:5135
+
+GET {{MyPP3MinimalAPI_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
