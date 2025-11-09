@@ -417,3 +417,5 @@ FodyWeavers.xsd
 *.msm
 *.msp
 /PP2/MyPP2MVC/wwwroot
+/PP4/MyPP4Console/data
+/PP4/MyPP4Console/Migrations
