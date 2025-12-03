@@ -4,7 +4,7 @@ public class Ships
 {
     public DateTime EndOfTitanic()
     {
-        return new DateTime();
+        return new DateTime(1912, 04, 15);
     }
 
     public DateTime EndOfBritannic()

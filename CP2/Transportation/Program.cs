@@ -8,6 +8,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews();
 
 builder.Services.AddSingleton<IAirplanes, Airbus>();
+builder.Services.AddSingleton<IAirplanes, Boeing>();
 
 var app = builder.Build();
 
